@@ -6,30 +6,36 @@ import numpy as np
 
 
 
+def main(data,eta,epochs,filename,plotFileName):
+    AND = {
+        "x1": [0,0,1,1],
+        "x2": [0,1,0,1],
+        "y": [0,0,0,1],
+    }
 
-AND = {
-    "x1": [0,0,1,1],
-    "x2": [0,1,0,1],
-    "y": [0,0,0,1],
-}
+    df = pd.DataFrame(data)
 
-df = pd.DataFrame(AND)
+    print(df)
+    X,y = prepare_data(df)
 
-print(df)
+    model = Perceptron(eta, epochs)
+    model.fit(X, y)
 
+    _ = model.total_loss()
 
-X,y = prepare_data(df)
+    save_model(model,filename)
+    save_plot(df,plotFileName,model)
 
-ETA = 0.3 # 0 and 1
-EPOCHS = 10
+if __name__=='__main__': #entry point
+    AND = {
+        "x1": [0,0,1,1],
+        "x2": [0,1,0,1],
+        "y": [0,0,0,1],
+    }
+    ETA = 0.3 # 0 and 1
+    EPOCHS = 10
+    main(data=AND,eta=ETA,epochs=EPOCHS,filename="and.model",plotFileName="and.png")
 
-model = Perceptron(eta=ETA, epochs=EPOCHS)
-model.fit(X, y)
-
-_ = model.total_loss()
-
-save_model(model,filename="and.model")
-save_plot(df,"and.png",model)
 
 
 
