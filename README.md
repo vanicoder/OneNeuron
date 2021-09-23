@@ -4,7 +4,7 @@ OneNeuron|Perceptron
 # Commands Used
 
 '''bash
-git add . && git commit -m "Docstring updated" && git push origin maintain
+git add . && git commit -m "docstring updated" && git push origin main
 '''
 
 '''bash
