@@ -19,5 +19,26 @@ cp Research \Notebook/demo.ipynb .
 ![Sample Image](plots/and.png)
 <img src="plots/or.png" alt="OR Logical Gate Graph" width="500" height="600">
 
+# Python Code:-
+
+```python
+def main(data,eta,epochs,filename,plotFileName):
+   
+
+    df = pd.DataFrame(data)
+
+    print(df)
+    X,y = prepare_data(df)
+
+    model = Perceptron(eta, epochs)
+    model.fit(X, y)
+
+    _ = model.total_loss()
+
+    save_model(model,filename)
+    save_plot(df,plotFileName,model)
+```
+
+
 
 
