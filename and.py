@@ -7,7 +7,7 @@ import numpy as np
 
 
 def main(data,eta,epochs,filename,plotFileName):
-  
+   
 
     df = pd.DataFrame(data)
 
